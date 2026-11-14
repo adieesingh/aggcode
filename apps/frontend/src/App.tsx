@@ -1,11 +1,17 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
+import { useEffect, useState } from 'react'
+
 import './App.css'
 
 function App() {
-  
+  const [ws,setWs]=useState(new WebSocket("http://localhost:8080/"));
+  useEffect(()=>{
+      if(ws){
+        ws.send("Hi there")
+      }
+  },[ws])
+    return <>
+      hi there
+    </>
   
 }
 
